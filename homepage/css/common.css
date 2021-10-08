@@ -1,0 +1,284 @@
+@charset "utf-8";
+
+/* body, section, div, ul, li, h1, h2 { margin: 0; padding: 0;} */
+* { margin: 0; padding: 0;}
+li { list-style: none;}
+a { text-decoration: none; color: #000;}
+.hidden { position: absolute; left: -9999px; }
+
+/* html { overflow: hidden;} */
+html, body { display: block; width: 100%; height: 100vh;}
+.section { width: 100%; height: 100vh;
+position:relative;
+}
+
+#header { 
+    position: fixed; top: 0; left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+    /* border-bottom: 1px solid #000; */
+    background: rgba(0,0,0,0.3)
+    
+}
+#header h1{
+    position: absolute;
+    text-indent: -9999px;}
+#header #logo { 
+    position: fixed; top:0; left:10px;
+    width: 100px;
+    height:100px;
+    background: no-repeat center / cover;
+    background-image: url(../images/logo.png);}
+
+#gnbWrap {
+    width: 500px;
+    /* height: 30px; */
+    /* float:right; */
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 100px;
+    font-weight: bold;
+}
+#gnbList { 
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid #000; */
+}
+#gnbList li {
+    
+}
+#gnbList li a { color: #fff}
+
+/* #introBg{
+     뭔가 1페이지 메인화면으로 쓰고 싶은데 뭐 없나 
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; == 주석.
+} */
+
+/* 현재상영영화 */
+#live { background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;}
+#liveWrap { 
+    position: absolute; top: calc( 50% - 230px ); left: calc( 50% - 575px );
+    width: 1150px; height: 550px;
+    overflow: hidden;
+    /* border:3px solid red; */
+    background: #000;
+    
+}
+#posBtn { }
+#posBtn div { 
+    position: absolute; top: 0;left: 50%;
+    text-align: center;
+}
+#posBtn div a {
+    font-size:80px;
+    color: lightgray
+}
+#posBtn .prevBtn { top: calc( 50% - 340px ); }
+#posBtn .nextBtn { top: calc( 50% + 320px ); }
+
+#numBtn { 
+    position: absolute; bottom: 10px; left: 50px;
+    /* width: 200px; height: 50px; */
+    font-size: 25px;
+    letter-spacing: 10px;
+    }
+#numBtn li { float: left;}
+#numBtn li a { 
+    color: beige;
+    opacity: 0.7;
+}
+
+#movieList { 
+    width: 1150px; height: 1650px;
+    /* position: relative; top: -460px; */
+}
+#movieList li { 
+    width: 1150px; height: 550px;
+    /* display: flex; 
+    justify-content: space-between; */
+}
+/* #movieList li:nth-child(1) { background: black;}
+#movieList li:nth-child(2) { background: white;}
+#movieList li:nth-child(3) { background: orange;} */
+
+/* #movieList li div {} */
+#movieList li .poster { width: 715px; height: 550px; 
+    float: left;
+    /* border: 3px solid coral; */
+}
+#movieList li:nth-child(1) .poster {background-image: url(../images/poster1.png);}
+#movieList li:nth-child(2) .poster {background-image: url(../images/poster2.png);}
+#movieList li:nth-child(3) .poster {background-image: url(../images/poster3.png);}
+#movieList li .poster a { 
+    display: block;
+    width: 715px; 
+    height: 550px;
+}
+#movieList li .explain { 
+    width: 400px; height: 550px;
+    background: black;
+    float: right; 
+    position: relative;  right: 30px;
+}
+#movieList li .explain .border_img { 
+    position: absolute; top:0; right: -30px;
+    width:30px; height: 550px;
+    background-image: url(../images/border.png);
+}
+.explain .title {
+    margin: 15px 0 0 15px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.explain .trailer { 
+    float: right;
+    margin: 15px 15px 0 0;
+    color: #fff;
+    font-size: 20px;
+}
+/* #movieList li .explain .rTime */
+.rTime { 
+    margin: 15px auto 0;
+    /* height: 100px;  */
+    text-align: center;
+    color: #fff;
+    background: #6d6b6b;
+    border-collapse: collapse;
+    
+}
+.rTime tr { height: 30px;}
+.rTime th { height: 30px;
+    border: 1px solid #000;
+    box-sizing: border-box;}
+.rTime td { 
+    border: 1px solid #000;
+    box-sizing: border-box;
+    }
+.rTime td:nth-child(1) { width: 60px;}
+.rTime td:nth-child(2) { width: 135px;}
+.rTime td:nth-child(3) { width: 135px;}
+
+.info {
+    position: relative;
+    margin: 15px auto 0;
+    width: 350px;
+    color: #fff;
+    font-size: 15px;
+}
+.info .info_bar { 
+    display: inline-block;
+    position: absolute; top:2px; left: -10px;
+    width:3px;
+    height: 40px;
+    opacity: 0.9;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 3px 3px 0 0;
+}
+.info .info_bar2 { 
+    position: relative;
+    margin-left: 9px;
+    padding-left: 10px;
+}
+.info .info_bar2::before { 
+    content: "";
+    position: absolute; top: 3px; left:0;
+    width: 1px;
+    height: 15px;
+    background: rgba(255,255,255,.2);
+}
+.info .actor { margin-top: 2px; }
+.info .summary { margin: 2px 0 5px 0;}
+.info a { color: #fff; }
+
+
+#future { background:rgba(128, 128, 128, 0.5)}
+#future h2 { 
+    position: relative; top: 150px;
+    text-align: center;
+    font-size: 60px; 
+}
+
+#futureWrap { 
+    width: 1200px;
+    height: 600px;
+    border: 1px solid #000;
+    margin: 200px auto 0;
+      
+}
+
+#futureList { 
+    display: flex;
+    justify-content: space-between;  
+}
+#futureList li{
+    width: 350px;
+    height: 600px;
+    background: no-repeat center / cover;
+    position:relative;
+}
+
+#futureList li:nth-child(1) { background-image: url(../images/venom.jpg);}
+#futureList li:nth-child(2) { background-image: url(../images/dune.jpg);}
+#futureList li:nth-child(3) { background-image: url(../images/eternals.jpg);}
+#futureList li .start_date { 
+    position:absolute; top: 7px; left: 7px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: lightseagreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer { 
+    height: 1000px;
+}
+
+/* #posterWrap { 
+    width: 730px;
+    height: 380px;
+    overflow: hidden;
+}
+#posterWrap #posterList { 
+    width: 2190px;
+}
+#posterWrap #posterList li { 
+    width: 33%;
+    float: left;
+} 가로슬라이드를 위한건데 세로 슬라이드 한번 해보자*/
+
+/* #movieWrap {
+    width: 1150px; height: 460px;
+} */
