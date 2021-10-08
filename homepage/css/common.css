@@ -61,6 +61,41 @@ position:relative;
     background-attachment: fixed; == 주석.
 } */
 
+#guide{
+    /* background: no-repeat center/ cover;
+    background-image: url(../images/beach2.jpg); */
+    /* background: #e9e9e9; */
+    background: no-repeat center / cover;
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/lalaland.jpg);
+}
+#guide h2 {
+    position: relative; top: 150px;
+    text-align: center;
+    font-size: 60px; 
+    color: #fff;
+}
+#guideWrap{
+    width: 1100px;
+    height: 620px;
+    border: 1px solid #000;
+    margin: 180px auto 0;
+}
+#guideList {
+    margin: 50px 0 0 100px;
+}
+#guideList li { 
+    list-style-image: url(../images/check1.png);
+    color: #e9e9e9;
+}
+#guideList h3 { 
+    margin: 0 0 5px 10px;
+    font-size: 30px;
+}
+#guideList p { 
+    margin: 0 0 10px 20px;
+    font-size: 22px;
+}
+
 /* 현재상영영화 */
 #live { background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png);
     background-repeat: no-repeat;
@@ -142,7 +177,6 @@ position:relative;
     font-size: 20px;
     display: inline-block;
 }
-
 .explain .trailer { 
     float: right;
     margin: 15px 15px 0 0;
@@ -170,7 +204,6 @@ position:relative;
 .rTime td:nth-child(1) { width: 60px;}
 .rTime td:nth-child(2) { width: 135px;}
 .rTime td:nth-child(3) { width: 135px;}
-
 .info {
     position: relative;
     margin: 15px auto 0;
@@ -203,22 +236,19 @@ position:relative;
 .info .summary { margin: 2px 0 5px 0;}
 .info a { color: #fff; }
 
-
-#future { background:rgba(128, 128, 128, 0.5)}
+#future { background: rgb(17, 17, 17)}
 #future h2 { 
     position: relative; top: 150px;
     text-align: center;
     font-size: 60px; 
+    color: #fff;
 }
-
 #futureWrap { 
     width: 1200px;
     height: 600px;
     border: 1px solid #000;
-    margin: 200px auto 0;
-      
+    margin: 200px auto 0;     
 }
-
 #futureList { 
     display: flex;
     justify-content: space-between;  
@@ -229,7 +259,6 @@ position:relative;
     background: no-repeat center / cover;
     position:relative;
 }
-
 #futureList li:nth-child(1) { background-image: url(../images/venom.jpg);}
 #futureList li:nth-child(2) { background-image: url(../images/dune.jpg);}
 #futureList li:nth-child(3) { background-image: url(../images/eternals.jpg);}
@@ -238,8 +267,84 @@ position:relative;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: lightseagreen;
+    background: rgb(199, 199, 21);
+    font-weight: bold; color: #fff;
+    text-align: center;
+    line-height: 50px;
 }
+
+#caution { 
+    background:rgba(128, 128, 128, 0.5)
+}
+
+#galery { 
+    background: #e9e9e9;
+    position: relative;
+}
+#galery h2 { 
+    position: relative; top: 150px;
+    text-align: center;
+    font-size: 60px; 
+    color: #000;
+}
+#galeryWrap{
+    width: 1320px;
+    height: 540px;
+    /* overflow: hidden; */
+    margin: 270px auto 0;
+    border: 1px solid red;
+}
+#galeryList { 
+    width: 300%;
+    height: 540px;
+}
+#galeryList li{ 
+    width: 300px;
+    height: 300px;
+    margin: 70px 60px;
+    float: left;
+    background: no-repeat center / cover;
+}
+
+#galery_slider_btn { 
+    
+    
+}
+#galery_slider_btn a { 
+    position: absolute; top: 50%;
+    display: block;
+    width: 60px; height: 60px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    /* opacity: 0.3; */
+    transition: 0.5s;
+    background: no-repeat center;
+}
+#galery_slider_btn .galery_prev { 
+    left: 100px;
+    background-image: url(../images/prev_icon.png);
+}
+#galery_slider_btn .galery_next { 
+    right: 100px;
+    background-image: url(../images/next_icon.png);
+}
+
+
+#galeryList li:nth-child(1) { background-image: url(../images/galery0.jpg);}
+#galeryList li:nth-child(2) { background-image: url(../images/galery1.jpg);}
+#galeryList li:nth-child(3) { background-image: url(../images/galery2.jpg);}
+#galeryList li:nth-child(4) { background-image: url(../images/galery3.jpg);}
+#galeryList li:nth-child(5) { background-image: url(../images/galery4.jpg);}
+#galeryList li:nth-child(6) { background-image: url(../images/galery5.jpg);}
+#galeryList li:nth-child(7) { background-image: url(../images/galery6.jpg);}
+#galeryList li:nth-child(8) { background-image: url(../images/galery7.jpg);}
+#galeryList li:nth-child(9) { background-image: url(../images/galery8.jpg);}
+
+
+
+
+
+
 
 
 
