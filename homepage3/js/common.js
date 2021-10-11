@@ -8,24 +8,94 @@
 // var page = 1;
 
 // mHtml.animate({scrollTop : 0}, 10);
+let n = 0;
+let state = 1;
+let screen_pos = $(".section").position().top
+document.addEventListener('wheel', function(e) {
+    // console.log(e.wheelDelta)
+    if (e.wheelDelta < 0 && state == 1) {
+        state = 0;
+        n++;
+        if ( n == 10) {
+            n=9;
+            state = 1;
+        }
+        else {
+            console.log(screen_pos)
+            console.log($("#live").position().top)
+            console.log($("#future").position().top)
+            console.log($("#guide").position().top)
+            console.log($("#guide2").position().top)
+            console.log($("#caution").position().top)
+            $("html:not(:animated), body:not(:animated)").animate({ scrollTop: screen_pos*n }, 1000, function() {
+                state = 1;
+            })
+        }
+    }
+    else if (e.wheelDelta > 0 && state == 1) {
+        state = 0;
+        n--;
+        if ( n < 0) {
+            n = 0;
+            state = 1;
+        }
+        else {
+        $("html:not(:animated), body:not(:animated)").animate({  scrollTop: screen_pos*n }, 1000, function() {
+                state = 1;
+            })
+        }
+    }
+    // num = n-1;
+    $("#sideNav ul li a").removeClass("side_active");
+    $("#sideNav ul li a:eq("+n+")").addClass('side_active')
+    if(n == 4){
+        $("#rightBox ul").addClass('active')
+    }
+    else $("#rightBox ul").removeClass('active')
+    if(n>0) $("#sideNav").animate({opacity:1}, 1000)
+    else $("#sideNav").css({opacity:0})
 
-$(window).on('load', function() { 
-    // $("#introBg").fadeOut(5000, 'swing')
+
+    // if($(window).scrollTop() == 0) $("#sideNav").css({opacity:0})
+    // else $("#sideNav").css({opacity:1})
+    // $()
     
+    
+    console.log(n)
+    console.log($("html, body").scrollTop);
+    e.preventDefault();
+    console.log($(window).scrollTop())
+},{passive : false})
+window.addEventListener('load', function() {
+    setTimeout(function() {
+            scrollTo(0, 0)
+    }, 10)
 })
-
 // 사이드 네비게이션
 $("#sideNav ul li").on('click', function(e) {
     $(this).children('a').addClass('side_active')
     $(this).siblings().children('a').removeClass("side_active");
+
+    let idName = $(this).children('a').attr('href')
+    let section_pos = $(idName).position().top
+    
+    $("html, body").animate({ scrollTop: section_pos }, 1000)
+    n = $(this).index();
+    console.log(section_pos, n)
+    // console.log($(this).children('a'))
+    if(n == 4){
+        $("#rightBox ul").addClass('active')
+    }
+    else $("#rightBox ul").removeClass('active')
+    if(n>0) $("#sideNav").animate({opacity:1}, 1000)
+    else $("#sideNav").css({opacity:0})
     e.preventDefault();
 })
-
 
 let slideHeight = $("#liveWrap").height();
 console.log(slideHeight);
 let slideIndex = 0;
-let state = 1;
+let slide_state = 1;
 
 $("#posBtn .prevBtn").on("click", function(e) { 
     prevSlide();
@@ -37,9 +107,11 @@ $("#posBtn .nextBtn").on("click", function(e) {
     e.preventDefault();
 })
 
+// if($("html, body").)
+
 function prevSlide() { 
-    if(state == 1){
-        state = 0
+    if(slide_state == 1){
+        slide_state = 0
         slideIndex--;
         if(slideIndex < 0) slideIndex = 0; // 슬라이드 갯수보다 많을 때 멈추게
         
@@ -47,14 +119,14 @@ function prevSlide() {
         $("#numBtn li a").not($("#numBtn li a:eq("+slideIndex+")")).text("○");
         
         $("#movieList:not(:animated)").animate({marginTop: -(slideHeight * slideIndex)}, 1000, function() {
-            state = 1;
+            slide_state = 1;
         })    
     }
 }
 
 function nextSlide() { 
-    if(state == 1){
-        state = 0
+    if(slide_state == 1){
+        slide_state = 0
         console.log(slideIndex)
         slideIndex++;
 
@@ -66,7 +138,7 @@ function nextSlide() {
         $("#numBtn li a").not($("#numBtn li a:eq("+slideIndex+")")).text("○");
 
         $("#movieList:not(:animated)").animate({marginTop: -(slideHeight * slideIndex)}, 1000, function() { 
-            state = 1;
+            slide_state = 1;
         })
     }
 }
@@ -75,14 +147,14 @@ $("#numBtn li a").on("click", function(e) {
     slideIndex = $(this).parent().index()
     // if($(this).parent().index() == )
 
-    if( state == 1){
-        state = 0;
+    if( slide_state == 1){
+        slide_state = 0;
 
         $(this).parent().siblings().children("a").text("○");
         $(this).text("●");
         
         $("#movieList:not(:animated)").animate({marginTop: -(slideHeight * slideIndex)}, 1000, function() { 
-            state = 1;
+            slide_state = 1;
         })
     }
     e.preventDefault();
@@ -163,3 +235,20 @@ function h_nextSlide() {
     })
 }
 
+// $("#futureList li").on('click', function(e){
+//     $(this).children('div').html('<iframe width="900" height="500"name="eternals" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+// })
+
+$("#futureList li").on('click', function() { 
+    $(this).children('.teaser').show(500);
+    $("#futureWrap #darkBg").show()
+    $("#futureWrap #darkBg").on("click", function() { 
+        $(this).hide()
+        $("#futureList li .teaser").hide();
+    })
+})
+$("#futureList li .teaser .close").on('click', function(e){
+    $("#futureWrap #darkBg").hide()
+    $(this).parent().hide();    
+    e.stopPropagation(); // 부모요소인 li 클릭도 인식해서 hide된후 다시 show 된다. 이를 방지 하기 위한 것
+})

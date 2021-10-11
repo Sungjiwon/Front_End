@@ -17,8 +17,9 @@ position:relative;
     position: fixed;
     z-index: 100;
     top: 50%; left: 44px;
-    opacity: 1;
+    opacity: 0;
     transform: translateY(-50%);
+    /* transition: 1s; */
 }
 #sideNav ul li { 
     margin: 21.5px 7px;
@@ -64,13 +65,14 @@ position:relative;
 }
 #sideNav ul li a.side_active + .side{
     transition: opacity 0.2s ease-in;
-    width: auto;
+    /* width: 100px; */
     opacity: 1;
 }
 
 #sideNav div{
     position: absolute; top: 8px; left: 54px;
     opacity: 0;
+    width: 100px;
     cursor: pointer;
     font-size: 14px;
     color: #0067ac;
@@ -83,11 +85,12 @@ position:relative;
 #sideNav li:hover .side{
     /* opacity: 1; */
     transition: opacity 0.2s ease-in;
-    width: auto;
+    /* width: 100px; */
     opacity: 1;
 }
 
 #header { 
+    position:absolute; top:0; left:0;
     width: 100%;
     height: 100px;
     /* border-bottom: 1px solid #000; */
@@ -150,7 +153,7 @@ position:relative;
 } */
 
 /* 현재상영영화 */
-#live { background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png);
+#live { background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg110.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;}
@@ -302,7 +305,12 @@ position:relative;
 .info a { color: #0067ac;}
 
 /* 상영예정작 */
-#future { background: rgb(17, 17, 17)}
+#future {
+    background: no-repeat center / cover;
+    /* background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg11.jpg); */
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png)
+    /* background: rgb(17, 17, 17); */
+}
 #future h2 { 
     position: relative; top: 7vh;
     text-align: center;
@@ -330,18 +338,21 @@ position:relative;
     width: 350px;
     height: 550px;
     background: no-repeat center / cover;
-    position:relative;
+    /* position:relative; */
+    cursor: pointer;
 }
 #futureList li:nth-child(1) { background-image: url(../images/venom.jpg);}
 #futureList li:nth-child(2) { background-image: url(../images/dune.jpg);}
 #futureList li:nth-child(3) { background-image: url(../images/eternals.jpg);}
-#futureList li a { 
+/* #futureList li a { 
     display :block; 
     width: 350px; height: 500px; 
-    /* start_date 에 커서 올리면 a태그 발동 안하는데 이거 어떻게 하더라 강사님이 알려줬는데... */
-}
+    start_date 에 커서 올리면 a태그 발동 안하는데 이거 어떻게 하더라 강사님이 알려줬는데...
+} */
 #futureList li .start_date { 
-    position:absolute; top: 7px; left: 7px;
+    position:relative; top: 7px; left: 7px;
+    /* z-index: ; */
+    display: block;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -350,13 +361,45 @@ position:relative;
     text-align: center;
     line-height: 55px;
 }
+#futureList li .teaser{
+    position:absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 120;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    
+    display: none;
+}
+#futureList li .teaser .close{ 
+    float: right;
+    /* text-align: right; */
+    font-size: 20px;
+    font-weight: normal;
+    /* position: relative; */
+    /* top:-40px; */
+    color: #fff;
+}
+#futureList li .teaser .teaser_video { 
+    width: 100%;
+    height: 100%;
+}
+#futureWrap #darkBg { 
+    z-index: 100;
+    position:absolute; top:0; left: 0;
+    width: 100%; height: 100vh;
+    background:rgba(51, 51, 51, 0.5);
+    display: none;
+}
 
 /* 극장안내 */
 #guide{
     /* background: no-repeat center/ cover;
     background-image: url(../images/beach2.jpg); */
     /* background: #e9e9e9; */
-    border-top: 3px solid #fff;
+    /* border-top: 3px solid #fff; */
+    /* background: no-repeat center / cover;
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png); */
     background: rgb(17, 17, 17);
     
 }
@@ -375,6 +418,7 @@ position:relative;
     height: 65vh;
     margin: 15vh auto 0;
     border: 1px solid #fff;
+    background: rgb(109, 146, 161);
 }
 #guideList {
     margin: 50px 0 0 100px;
@@ -394,7 +438,10 @@ position:relative;
 
 /* 약도 및 브랜드. */
 #guide2 { 
-    width: 100%; height: 100vh; background: lightblue;
+    width: 100%; height: 100vh; 
+    /* background: lightblue; */
+    background: no-repeat center / cover;
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png);
     overflow: hidden;
 }
 #guide2_wrap { 
@@ -413,7 +460,7 @@ position:relative;
 #leftBox p { /* 스크롤됐을 때 한 글자씩 애니메이션 하기 */
     font-size: 42px;
     line-height: 60px;
-    color: #1e1e1e;
+    color: #e9e9e9;
 }
 #leftBox .food { } /* 스크롤됐을 때 형광펜처럼 칠하기 */
 #leftBox .link{
@@ -440,11 +487,10 @@ position:relative;
     display: inline-block;
     margin-right: 6%;
     width: 43%;
-    height: calc(352px * 10);
-    border: 3px solid red;
-    box-sizing: border-box;
+    height: calc(290px * 10);
+    /* border: 3px solid red;
+    box-sizing: border-box; */
 }
-
 
 #guide2_wrap #rightBox .brandRight{
     position:relative; top: -160px;
@@ -452,7 +498,7 @@ position:relative;
 
 #guide2_wrap #rightBox .brand li{
     width: 100%;
-    height: 320px;
+    height: 258px;
     margin-top: 32px;
 }
 
@@ -460,11 +506,12 @@ position:relative;
     border-radius: 24%;
     width: 100%;
     height: 100%;
+    filter: brightness(80%);
 }
 
 /* 유의사항 */
 #caution { 
-    background:rgba(128, 128, 128, 0.5)
+    background: rgb(17, 17, 17);
 }
 #caution h2 { 
     position: relative; top: 7vh;
@@ -503,21 +550,23 @@ position:relative;
 
 /* 갤러리 */
 #galery { 
-    background: #e9e9e9;
+    background: no-repeat center / cover;
+    background-image: linear-gradient( rgba(0,0,0, 0.6), rgba(0,0,0,0.6)),url(../images/bg11.jpg);
     position: relative;
 }
 #galery h2 { 
     position: relative; top: 7vh;
     text-align: center;
     font-size: 60px; 
-    color: #000;
+    color: #ccc;
 }
 #galeryWrap{
     width: 1280px;
     height: 500px;
     overflow: hidden;
     margin: 15vh auto 0;
-    border: 1px solid red;
+    background: #1e1e1e;
+    /* border: 1px solid red; */
 }
 #galeryList { 
     width: 300%;
@@ -630,6 +679,8 @@ position:relative;
 }
 #communityWrap #community_bottom { display: table-row; } 
 
+#map { background: olivedrab;}
+
 
 
 
@@ -648,7 +699,7 @@ position:relative;
 
 
 footer { 
-    height: 1000px;
+    height: 500px;
 }
 
 /* #posterWrap { 

@@ -30,44 +30,49 @@
             <source src="video/video1.mp4">
         </video>
      -->
+    
     </div>
     <div id="sideNav">
         <ul>
             <li>
-                <a href="" class="side_active"><span></span></a>
-                <div class="side">1</div>
+                <a href="#introBg" class="side_active"><span></span></a>
+                <div class="side">Top</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">2</div>
+                <a href="#live"><span></span></a>
+                <div class="side">현재상영영화</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">3</div>
+                <a href="#future"><span></span></a>
+                <div class="side">상영예정영화</div>
+            </li> 
+            <li>
+                <a href="#guide"><span></span></a>
+                <div class="side">이용안내</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">4</div>
+                <a href="#guide2"><span></span></a>
+                <div class="side">주변상가</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">5</div>
+                <a href="#caution"><span></span></a>
+                <div class="side">유의사항</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">6</div>
+                <a href="#galery"><span></span></a>
+                <div class="side">갤러리</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">7</div>
+                <a href="#community"><span></span></a>
+                <div class="side">커뮤니티</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side"> 8</div>
+                <a href="#map"><span></span></a>
+                <div class="side">찾아오시는 길</div>
             </li>
             <li>
-                <a href=""><span></span></a>
-                <div class="side">9</div>
+                <a href="#footer"><span></span></a>
+                <div class="side">About Me</div>
             </li>
         </ul>
     </div>
@@ -215,18 +220,29 @@
                 <li>
                     <h3 class="hidden">베놈2: 렛 데어 비 카니지</h3>
                     <span class="start_date">10.13</span>
-                    <a href="#"></a>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" src="https://www.youtube.com/embed/V6aWnlhH6ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- <iframe width="560" height="315" tasrget="_blank" name="eternals" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </li>
                 <li>
                     <h3 class="hidden">듄</h3>
                     <span class="start_date">10.20</span>
-                    <a href="#"></a>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/-5Dc8EMVYBo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </li>
                 <li>
                     <h3 class="hidden">이터널스</h3>
                     <span class="start_date">11.04</span>
-                    <a href="#"></a></li>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
             </ul>
+            <div id="darkBg"></div>
         </section>
     </section>    
 
@@ -259,8 +275,6 @@
                     <p>20,000원 (차량 1대 기준)</p>
                 </li>
             </ul>
-
-            <div id="foodMap">약도 + 주변상가이미지애니메이션</div>
         </section>
     </section>
 
@@ -271,7 +285,7 @@
 
             </div>
             <div id="rightBox" class="box">
-                <ul class="brand brandLeft active">
+                <ul class="brand brandLeft ">
                     <li><a href="#"><img src="images/brand1.jpeg" alt=""></a></li>
                     <li><a href="#"><img src="images/brand2.jpeg" alt=""></a></li>
                     <li><a href="#"><img src="images/brand3.jpeg" alt=""></a></li>
@@ -283,7 +297,7 @@
                     <li><a href="#"><img src="images/brand9.jpeg" alt=""></a></li>
                     <li><a href="#"><img src="images/brand10.jpeg" alt=""></a></li>
                 </ul>
-                <ul class="brand brandRight active">
+                <ul class="brand brandRight">
                     <li><a href="#"><img src="images/brand11.jpeg" alt=""></a></li>
                     <li><a href="#"><img src="images/brand12.jpeg" alt=""></a></li>
                     <li><a href="#"><img src="images/brand13.jpeg" alt=""></a></li>
@@ -299,6 +313,7 @@
         </div>
     </div>
 
+    
     <section id="caution" class="section">
         <h2>유의사항</h2>
         <section id="cautionWrap">
@@ -379,7 +394,8 @@
         <h2 class="hidden">찾아오시는 길</h2>
     </section>
     
-    </div>
+
+
     <footer id="footer">
         <div id="foot_info">
             <ul>
