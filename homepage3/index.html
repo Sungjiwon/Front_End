@@ -9,6 +9,9 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/common.js" defer></script>
     <link rel="stylesheet" href="css/common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -29,12 +32,12 @@
 
 
     <div id="introBg">
-        <!-- <video muted autoplay loop>
-            <source src="video/video1.mp4">
-        </video>
-     -->
-    
+        <div id="typingWrap">
+            <p class="typing-txt">Blumacine</p> 
+            <p class="typing"></p> 
+        </div>
     </div>
+
     <div id="sideNav">
         <ul>
             <li>
@@ -89,10 +92,10 @@
             <div class="prevBtn"><a href="#">&and;</a></div>
             <div class="nextBtn"><a href="#">&or;</a></div>
         </div>
-        
+        <div class="darkBg"></div>
         <div id="liveWrap">
             <!-- <section id="movieWrap"> -->
-            <div class="darkBg"></div>
+            
             <ul id="movieList">
                 <li>
                     <h3 class="hidden">영화: 보이스</h3>
@@ -389,24 +392,28 @@
     <section id="community" class="section">
         <h2>커뮤니티</h2>
         <section id="communityWrap">
-            <div id="community_top">
+            <div class="communityBox communityBox1">
                 <div id="official" class="community">
                     <h3>공지사항</h3>
                     <a href="#">+</a>
                 </div>
+            </div>
+            <div class="communityBox communityBox2">
                 <div id="freetalk" class="community">
                     <h3>자유게시판</h3>
                     <a href="#">+</a>
                 </div>
             </div>
-            <div id="community_bottom">
+            <div class="communityBox communityBox3">
                 <div id="epilogue" class="community">
                     <h3>후기</h3>
                     <a href="#">+</a>
                 </div>
+            </div>
+            <div class="communityBox communityBox4">
                 <div id="message" class="community">
                     <h3>문자알림신청</h3>
-                    <a href="#">+</a>
+                    <a href="#">+</a>  
                 </div>
             </div>
         </section>

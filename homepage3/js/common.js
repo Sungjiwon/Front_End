@@ -1,13 +1,3 @@
-// 원페이지 스크롤
-// window.addEventListener("wheel", function(e){
-//     e.preventDefault();
-// },{passive : false});
-// // 섹션 순서: header(홈) live, future, guide, caution, galery, community, map
-
-// var mHtml = $("html")
-// var page = 1;
-
-// mHtml.animate({scrollTop : 0}, 10);
 let n = 0;
 let state = 1;
 let screen_pos = $(".section").position().top
@@ -24,12 +14,6 @@ document.addEventListener('wheel', function(e) {
             state = 1;
         }
         else {
-            // console.log(screen_pos)
-            // console.log($("#live").position().top)
-            // console.log($("#future").position().top)
-            // console.log($("#guide").position().top)
-            // console.log($("#guide2").position().top)
-            // console.log($("#caution").position().top)
             $("html:not(:animated), body:not(:animated)").animate({ scrollTop: screen_pos*n }, 1000, function() {
                 state = 1;
             })
@@ -48,11 +32,9 @@ document.addEventListener('wheel', function(e) {
             })
         }
     }
-    // num = n-1;
     $("#sideNav ul li a").removeClass("side_active");
     $("#sideNav ul li a:eq("+n+")").addClass('side_active')
     if(n == 4){
-        // $("#rightBox ul").addClass('active')
         $("#rightBox ul:eq(0)").addClass('active1')
         $("#rightBox ul:eq(1)").addClass('active2')
     }
@@ -63,29 +45,36 @@ document.addEventListener('wheel', function(e) {
     if(n>0) {
         console.log(253443); 
         $("#sideNav").animate({opacity:1}, 1000)
-        // $("#sideNav").show(1000)
     }
     else {
         console.log(989999999999999999999999999999); 
         $("#sideNav").css({opacity:0})
     
     }
-
-
-    // if($(window).scrollTop() == 0) $("#sideNav").css({opacity:0})
-    // else $("#sideNav").css({opacity:1})
-    // $()
-    
-    
-    // console.log(n)
-    // console.log($("html, body").scrollTop);
     e.preventDefault();
-    // console.log($(window).scrollTop())
 },{passive : false})
 window.addEventListener('load', function() {
     setTimeout(function() {
             scrollTo(0, 0)
     }, 10)
+    var typingBool = false; 
+    var typingIdx=0; 
+    var typingTxt = $(".typing-txt").text(); // 타이핑될 텍스트를 가져온다 
+    typingTxt=typingTxt.split(""); // 한글자씩 자른다. 
+    if(typingBool==false){ // 타이핑이 진행되지 않았다면 
+       typingBool=true; 
+       
+       var tyInt = setInterval(typing,100); // 반복동작 
+     } 
+     
+     function typing(){ 
+       if(typingIdx<typingTxt.length){ // 타이핑될 텍스트 길이만큼 반복 
+         $(".typing").append(typingTxt[typingIdx]); // 한글자씩 이어준다. 
+         typingIdx++; 
+       } else{ 
+         clearInterval(tyInt); //끝나면 반복종료 
+       } 
+     }
 })
 // 사이드 네비게이션
 $("#sideNav ul li").on('click', function(e) {
@@ -121,8 +110,8 @@ $("#movieList li .explain .trailer").on('click', function(e) {
     let temp_index = $(this).parent().parent().index();
     console.log(temp_index)
     $("#movieList li:eq("+temp_index+") .teaser").show(500);
-    $("#liveWrap .darkBg").show()
-    $("#liveWrap .darkBg").on("click", function() { 
+    $("#live .darkBg").show()
+    $("#live .darkBg").on("click", function() { 
         $(this).hide()
         $("#movieList li:eq("+temp_index+") .teaser").hide();
     })
@@ -130,7 +119,7 @@ $("#movieList li .explain .trailer").on('click', function(e) {
 })
 
 $("#movieList li .teaser .close").on("click", function(e){
-    $("#liveWrap .darkBg").hide()
+    $("#live .darkBg").hide()
     $(this).parent().hide();    
     e.stopPropagation(); // 부모요소인 li 클릭도 인식해서 hide된후 다시 show 된다. 이를 방지 하기 위한 것
 })
