@@ -18,6 +18,7 @@ position:relative;
     z-index: 100;
     top: 50%; left: 44px;
     opacity: 0;
+    /* display: none; */
     transform: translateY(-50%);
     /* transition: 1s; */
 }
@@ -33,7 +34,7 @@ position:relative;
     z-index: 1;
     width: 100%;
     height: 100%;
-    cursor: pointer;
+    cursor:initial;
     text-decoration: none;
 }
 #sideNav ul li a span { 
@@ -164,7 +165,7 @@ position:relative;
     color: #fff;
 }
 #liveWrap { 
-    position: relative;
+    /* position: relative; */
     margin: 23vh auto 0;
     width: 1150px; height: 550px;
     overflow: hidden;
@@ -209,9 +210,34 @@ position:relative;
     /* display: flex; 
     justify-content: space-between; */
 }
-/* #movieList li:nth-child(1) { background: black;}
-#movieList li:nth-child(2) { background: white;}
-#movieList li:nth-child(3) { background: orange;} */
+#movieList li .teaser { 
+    position:absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 120;
+    width: 100%;
+    max-width: 900px;
+    height: 500px;
+    
+    display: none;
+}
+#movieList li .teaser .close{
+    float: right;
+    font-size: 20px;
+    font-weight: normal;
+    color: #fff;
+    cursor: pointer;
+}
+#movieList li .teaser .teaser_video{
+    width: 100%;
+    height: 100%;
+}
+#liveWrap .darkBg { 
+    z-index: 100;
+    position:absolute; top:0; left: 0;
+    width: 100%; height: 100vh;
+    background:rgba(51, 51, 51, 0.5);
+    display: none;
+}
 
 /* #movieList li div {} */
 #movieList li .poster { width: 715px; height: 550px; 
@@ -384,7 +410,7 @@ position:relative;
     width: 100%;
     height: 100%;
 }
-#futureWrap #darkBg { 
+#futureWrap .darkBg { 
     z-index: 100;
     position:absolute; top:0; left: 0;
     width: 100%; height: 100vh;
@@ -394,22 +420,23 @@ position:relative;
 
 /* 극장안내 */
 #guide{
-    /* background: no-repeat center/ cover;
-    background-image: url(../images/beach2.jpg); */
+    background: no-repeat center/ cover;
+    background-image :url(../images/bg20.jpg);
     /* background: #e9e9e9; */
     /* border-top: 3px solid #fff; */
     /* background: no-repeat center / cover;
     background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png); */
-    background: rgb(17, 17, 17);
+    /* background: rgb(17, 17, 17); */
     
 }
 #guide h2 {
     position: relative; top: 7vh;
     text-align: center;
     font-size: 60px; 
-    color: #fff;
+    color: #1e1e1e;
 }
 #guideWrap{
+    position: relative;
     /* width: 1100px;
     height: 620px;
     border: 1px solid #000;
@@ -419,6 +446,12 @@ position:relative;
     margin: 15vh auto 0;
     border: 1px solid #fff;
     background: rgb(109, 146, 161);
+}
+#guideWrap .minimap { 
+    position: absolute; bottom:20px; right:50px;
+    width: 430px; height: 260px;
+    background: no-repeat center / cover;
+    background-image: url(../images/minimap.gif);
 }
 #guideList {
     margin: 50px 0 0 100px;
@@ -444,22 +477,28 @@ position:relative;
     background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png);
     overflow: hidden;
 }
+#guide2 h2 { 
+    position: relative; top:25vh; left: 15%;
+    display: inline-block;
+    color: #fff;
+    font-size: 55px;
+}
 #guide2_wrap { 
     width: 1200px;
     margin: 0 auto;
 }
 #guide2_wrap #leftBox { 
-    position: relative; top: 35vh;
-    width: 50%; 
+    position: relative; top: 30vh; left: -5%;
+    width: 45%;; 
     /* height: 50%; */
     float: left;
     /* border: 3px solid blue; */
     /* box-sizing: border-box; */
-    margin-left: -5%;
+    /* margin-left: 5%; */
 }
 #leftBox p { /* 스크롤됐을 때 한 글자씩 애니메이션 하기 */
-    font-size: 42px;
-    line-height: 60px;
+    font-size: 25px;
+    line-height: 40px;
     color: #e9e9e9;
 }
 #leftBox .food { } /* 스크롤됐을 때 형광펜처럼 칠하기 */
@@ -475,13 +514,23 @@ position:relative;
     /* overflow: hidden; */
     min-width: 300px;
 }
-/* scroll됐을 때 시작하기.js로. 그리고 꼬리물기 어케하지... */
-@keyframes verticalscroll {
-	0% {-moz-transform: translateY(0);-ms-transform: translateY(0);-webkit-transform: translateY(0);transform: translateY(0);}
-	100% {-moz-transform: translateY(-8448px);-ms-transform: translateY(-8448px);-webkit-transform: translateY(-8448px);transform: translateY(-8448px)}
+/* 하나는 위로 하나는 반대로..... */
+@keyframes verticalscroll1 {
+    0% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
+    50% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
+	100% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
 }
-#rightBox .active{
-    animation: verticalscroll 180s linear infinite;
+@keyframes verticalscroll2 {
+	0% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
+    50% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
+    100% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
+}
+#rightBox .active1{
+    animation: verticalscroll1 60s linear infinite;
+    /* animation: ; */
+}
+#rightBox .active2{
+    animation: verticalscroll2 60s linear infinite;
 }
 #guide2_wrap #rightBox .brand{
     display: inline-block;
@@ -511,7 +560,8 @@ position:relative;
 
 /* 유의사항 */
 #caution { 
-    background: rgb(17, 17, 17);
+    background: no-repeat center/ cover;
+    background-image :url(../images/bg20.jpg);
 }
 #caution h2 { 
     position: relative; top: 7vh;
@@ -524,13 +574,14 @@ position:relative;
     margin: 15vh auto 0;
     width: 1100px;
     height: 65vh;
-    border: 3px solid olivedrab;    
+    border: 3px solid #1e1e1e;    
+    background-color: lightseagreen;
 }
 #cautionList {
     margin: 50px 0 0 100px;
 }
 #cautionList li { 
-    color: #e9e9e9;
+    color: #fff;
 }
 #cautionList li:nth-child(1) { list-style-image: url(../images/blackbox.png); }
 #cautionList li:nth-child(2) { list-style-image: url(../images/carlight.png); }
@@ -551,21 +602,23 @@ position:relative;
 /* 갤러리 */
 #galery { 
     background: no-repeat center / cover;
-    background-image: linear-gradient( rgba(0,0,0, 0.6), rgba(0,0,0,0.6)),url(../images/bg11.jpg);
+    /* background-image: linear-gradient( rgba(0,0,0, 0.6), rgba(0,0,0,0.6)),url(../images/bg11.jpg); */
+    background-image: url(../images/bg20.jpg);
+    
     position: relative;
 }
 #galery h2 { 
     position: relative; top: 7vh;
     text-align: center;
     font-size: 60px; 
-    color: #ccc;
+    color: #6d6b6b;
 }
 #galeryWrap{
     width: 1280px;
     height: 500px;
     overflow: hidden;
     margin: 15vh auto 0;
-    background: #1e1e1e;
+    /* background: #1e1e1e; */
     /* border: 1px solid red; */
 }
 #galeryList { 
@@ -584,6 +637,8 @@ position:relative;
     transition: 1s;
 }
 /* 이거는 js 하면서 슬라이더 할 때 크기 바뀌는걸로. 클래스 줘서하기. */
+/* ************@@@@@ 마우스 호버시 스케일 키우기 */
+
 #galeryList .galery_active {
     width: 500px;
     height: 450px;
@@ -608,10 +663,13 @@ position:relative;
 }
 #galery_slider_btn .galery_prev { 
     left: 10%;
+    background-color: #6d6b6b;
     background-image: url(../images/prev_icon.png);
+    filter: sepia(3);
 }
 #galery_slider_btn .galery_next { 
     right: 10%;
+    background-color: #1e1e1e;
     background-image: url(../images/next_icon.png);
 }
 /* 위치 진짜 어떻게 설정하지... */
@@ -680,41 +738,41 @@ position:relative;
 #communityWrap #community_bottom { display: table-row; } 
 
 #map { background: olivedrab;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer { 
+#map h2 { 
+    position: relative; top: 7vh;
+    text-align: center;
+    font-size: 48px;
+    color: #e9e9e9;
+}
+#mapWrap{ 
+    width: 900px;
+    height: 500px;
+    /* border: 1px solid red; */
+    margin: 15vh auto 0;
+}
+#mapWrap .realmap{
+    width: 900px;
     height: 500px;
 }
 
-/* #posterWrap { 
-    width: 730px;
-    height: 380px;
+#footer { 
+    background: #1e1e1e;
+    color: #ccc;
+    height: 800px;
     overflow: hidden;
 }
-#posterWrap #posterList { 
-    width: 2190px;
-}
-#posterWrap #posterList li { 
-    width: 33%;
-    float: left;
-} 가로슬라이드를 위한건데 세로 슬라이드 한번 해보자*/
 
-/* #movieWrap {
-    width: 1150px; height: 460px;
-} */
+#foot_info {
+    width: 800px;
+    height: 300px;
+    margin: 150px auto 0;
+    font-size: 35px;
+}
+#foot_info li {
+    margin-bottom: 20px;
+}
+#foot_info li address a{
+    display: inline-block;
+    width: 50px; height: 50px;
+    background-image: url(../images/insta.jpg);
+}

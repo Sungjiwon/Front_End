@@ -11,22 +11,25 @@
 let n = 0;
 let state = 1;
 let screen_pos = $(".section").position().top
+let footer_pos = $("#footer").height();
+console.log(footer_pos);
 document.addEventListener('wheel', function(e) {
     // console.log(e.wheelDelta)
     if (e.wheelDelta < 0 && state == 1) {
         state = 0;
         n++;
+        console.log(n)
         if ( n == 10) {
             n=9;
             state = 1;
         }
         else {
-            console.log(screen_pos)
-            console.log($("#live").position().top)
-            console.log($("#future").position().top)
-            console.log($("#guide").position().top)
-            console.log($("#guide2").position().top)
-            console.log($("#caution").position().top)
+            // console.log(screen_pos)
+            // console.log($("#live").position().top)
+            // console.log($("#future").position().top)
+            // console.log($("#guide").position().top)
+            // console.log($("#guide2").position().top)
+            // console.log($("#caution").position().top)
             $("html:not(:animated), body:not(:animated)").animate({ scrollTop: screen_pos*n }, 1000, function() {
                 state = 1;
             })
@@ -49,11 +52,24 @@ document.addEventListener('wheel', function(e) {
     $("#sideNav ul li a").removeClass("side_active");
     $("#sideNav ul li a:eq("+n+")").addClass('side_active')
     if(n == 4){
-        $("#rightBox ul").addClass('active')
+        // $("#rightBox ul").addClass('active')
+        $("#rightBox ul:eq(0)").addClass('active1')
+        $("#rightBox ul:eq(1)").addClass('active2')
     }
-    else $("#rightBox ul").removeClass('active')
-    if(n>0) $("#sideNav").animate({opacity:1}, 1000)
-    else $("#sideNav").css({opacity:0})
+    else {
+        $("#rightBox ul:eq(0)").removeClass('active1')
+        $("#rightBox ul:eq(1)").removeClass('active2')
+    }
+    if(n>0) {
+        console.log(253443); 
+        $("#sideNav").animate({opacity:1}, 1000)
+        // $("#sideNav").show(1000)
+    }
+    else {
+        console.log(989999999999999999999999999999); 
+        $("#sideNav").css({opacity:0})
+    
+    }
 
 
     // if($(window).scrollTop() == 0) $("#sideNav").css({opacity:0})
@@ -61,10 +77,10 @@ document.addEventListener('wheel', function(e) {
     // $()
     
     
-    console.log(n)
-    console.log($("html, body").scrollTop);
+    // console.log(n)
+    // console.log($("html, body").scrollTop);
     e.preventDefault();
-    console.log($(window).scrollTop())
+    // console.log($(window).scrollTop())
 },{passive : false})
 window.addEventListener('load', function() {
     setTimeout(function() {
@@ -83,13 +99,40 @@ $("#sideNav ul li").on('click', function(e) {
     n = $(this).index();
     console.log(section_pos, n)
     // console.log($(this).children('a'))
+    // if(n == 4){
+    //     $("#rightBox ul").addClass('active')
+    // }
+    // else $("#rightBox ul").removeClass('active')
     if(n == 4){
-        $("#rightBox ul").addClass('active')
+        // $("#rightBox ul").addClass('active')
+        $("#rightBox ul:eq(0)").addClass('active1')
+        $("#rightBox ul:eq(1)").addClass('active2')
     }
-    else $("#rightBox ul").removeClass('active')
+    else {
+        $("#rightBox ul:eq(0)").removeClass('active1')
+        $("#rightBox ul:eq(1)").removeClass('active2')
+    }
     if(n>0) $("#sideNav").animate({opacity:1}, 1000)
     else $("#sideNav").css({opacity:0})
     e.preventDefault();
+})
+
+$("#movieList li .explain .trailer").on('click', function(e) {
+    let temp_index = $(this).parent().parent().index();
+    console.log(temp_index)
+    $("#movieList li:eq("+temp_index+") .teaser").show(500);
+    $("#liveWrap .darkBg").show()
+    $("#liveWrap .darkBg").on("click", function() { 
+        $(this).hide()
+        $("#movieList li:eq("+temp_index+") .teaser").hide();
+    })
+    e.preventDefault();
+})
+
+$("#movieList li .teaser .close").on("click", function(e){
+    $("#liveWrap .darkBg").hide()
+    $(this).parent().hide();    
+    e.stopPropagation(); // 부모요소인 li 클릭도 인식해서 hide된후 다시 show 된다. 이를 방지 하기 위한 것
 })
 
 let slideHeight = $("#liveWrap").height();
@@ -241,14 +284,14 @@ function h_nextSlide() {
 
 $("#futureList li").on('click', function() { 
     $(this).children('.teaser').show(500);
-    $("#futureWrap #darkBg").show()
-    $("#futureWrap #darkBg").on("click", function() { 
+    $("#futureWrap .darkBg").show()
+    $("#futureWrap .darkBg").on("click", function() { 
         $(this).hide()
         $("#futureList li .teaser").hide();
     })
 })
 $("#futureList li .teaser .close").on('click', function(e){
-    $("#futureWrap #darkBg").hide()
+    $("#futureWrap .darkBg").hide()
     $(this).parent().hide();    
     e.stopPropagation(); // 부모요소인 li 클릭도 인식해서 hide된후 다시 show 된다. 이를 방지 하기 위한 것
 })

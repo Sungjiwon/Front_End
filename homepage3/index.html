@@ -17,13 +17,16 @@
         <nav id="gnbWrap">
             <h2 class="hidden">메뉴</h2>
             <ul id="gnbList">
+                <li><a href="#">영화</a></li>
                 <li><a href="#">극장안내</a></li>
-                <li><a href="#">현재상영영화</a></li>
-                <li><a href="#">상영예정영화</a></li>
                 <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">찾아오시는 길</a></li>
             </ul>
         </nav>
     </header>
+
+    <!-- 영화: 현재상영영화, 상영예정영화 // 극장안내: 극장안내, 유의사항 , 주변상가, 갤러리// 커뮤니티 //  찾아오시는길-->
+
 
     <div id="introBg">
         <!-- <video muted autoplay loop>
@@ -89,20 +92,25 @@
         
         <div id="liveWrap">
             <!-- <section id="movieWrap"> -->
-           
+            <div class="darkBg"></div>
             <ul id="movieList">
                 <li>
                     <h3 class="hidden">영화: 보이스</h3>
                     <div class="poster poster1"><a href="#"></a></div>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/gisxLcg9Hzk" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                     <div class="explain">
                         <div class="border_img"></div>
                         <p class="title">제목: 보이스</p>
                         <a href="#" class="trailer">[예고편]</a>
+                       
                         <table class="rTime">
                             <thead>
-                                <th colspan="3">
-                                    <p>10월 8일(금요일)</p>
-                                </th>
+                                <tr>
+                                    <th colspan="3"><p>10월 8일(금요일)</p></th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -130,6 +138,10 @@
                 <li>
                     <h3 class="hidden">영화: 007 노 타임 투 다이</h3>
                     <div class="poster poster2"><a href="#"></a></div>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/kCzbDJ2G_B8" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                     <div class="explain">
                         <div class="border_img"></div>
                         <p class="title">제목: 007 노 타임 투 다이</p>
@@ -137,9 +149,9 @@
                         
                         <table class="rTime">
                             <thead>
-                                <th colspan="3">
-                                    <p>10월 8일(금요일)</p>
-                                </th>
+                                <tr>
+                                    <th colspan="3"><p>10월 8일(금요일)</p></th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -154,6 +166,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        
 
                         <div class="info">
                             <span class="info_bar"></span><span>액션</span><span class="info_bar2">163분</span><span class="info_bar2">미국, 영국</span>
@@ -167,15 +180,19 @@
                 <li>
                     <h3 class="hidden">영화: F20</h3>
                     <div class="poster poster3"><a href="#"></a></div>
+                    <div class="teaser">
+                        <div class="close">X</div>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/SvgssDtmqfQ" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                     <div class="explain">
                         <div class="border_img"></div>
                         <p class="title">제목: F20</p>
                         <a href="#" class="trailer">[예고편]</a>
                         <table class="rTime">
                             <thead>
-                                <th colspan="3">
-                                    <p>10월 8일(금요일)</p>
-                                </th>
+                                <tr>
+                                    <th colspan="3"><p>10월 8일(금요일)</p></th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -222,7 +239,7 @@
                     <span class="start_date">10.13</span>
                     <div class="teaser">
                         <div class="close">X</div>
-                        <iframe class="teaser_video" src="https://www.youtube.com/embed/V6aWnlhH6ug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="teaser_video" src="https://www.youtube.com/embed/V6aWnlhH6ug" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <!-- <iframe width="560" height="315" tasrget="_blank" name="eternals" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                 </li>
@@ -231,7 +248,7 @@
                     <span class="start_date">10.20</span>
                     <div class="teaser">
                         <div class="close">X</div>
-                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/-5Dc8EMVYBo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/-5Dc8EMVYBo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </li>
                 <li>
@@ -239,10 +256,10 @@
                     <span class="start_date">11.04</span>
                     <div class="teaser">
                         <div class="close">X</div>
-                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="teaser_video" width="560" height="315" src="https://www.youtube.com/embed/BdkSkI61aGo" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
             </ul>
-            <div id="darkBg"></div>
+            <div class="darkBg"></div>
         </section>
     </section>    
 
@@ -275,13 +292,18 @@
                     <p>20,000원 (차량 1대 기준)</p>
                 </li>
             </ul>
+            <div class="minimap">
+                <!-- <h3 class="hidden">극장 약도</h3> -->
+            </div>
         </section>
     </section>
 
-    <div id="guide2">
+    <!-- 타이틀 하나에 나머지 텍스트 좀 줄이고. 괄호 빼고. -->
+    <section id="guide2">
+        <h2>주변 상가 현황</h2>
         <div id="guide2_wrap">            
             <div id="leftBox" class="box">
-                <p>극장으로 오시는 길에<br><span class="food">많은 음식점들이</span><br>있습니다.<br><span class="link">(이미지 클릭시 해당 음식점 링크로 이동합니다)</span></p>
+                <p>극장으로 오시는 길에<br><span class="food">많은 음식점들이</span><br>있습니다.<br><span class="link">이미지 클릭시 해당 음식점 링크로 이동합니다</span></p>
 
             </div>
             <div id="rightBox" class="box">
@@ -311,7 +333,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </section>
 
     
     <section id="caution" class="section">
@@ -342,7 +364,7 @@
             </ul>
         </section>
     </section>
-  
+
     <section id="galery" class="section">
         <h2>극장 갤러리</h2>
         <div id="galeryWrap">
@@ -391,7 +413,10 @@
     </section>
 
     <section id="map" class="section">
-        <h2 class="hidden">찾아오시는 길</h2>
+        <h2>찾아오시는 길</h2>
+        <div id="mapWrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.4927441634554!2d129.4292848511803!3d35.640229739728944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3567b625e115dac3%3A0x45576e114817f7d1!2z7Jq47IKwIOu4lOujqOuniOyUqOuEpCDsnpDrj5nssKjqt7nsnqU!5e0!3m2!1sko!2skr!4v1633934095300!5m2!1sko!2skr" width="900" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>            
+        </div>
     </section>
     
 
@@ -399,17 +424,14 @@
     <footer id="footer">
         <div id="foot_info">
             <ul>
-                <li><span>주소</span><address>울산광역시 북구 산하동 166-1번지</address></li>
-                <li><span>이메일</span><address>webmaster@cinemabeach.co.kr</address></li>
-                <li><span>전화번호</span><address>052-298-6622, 052-298-4433</address></li>
+                <li><span>주소</span><address>&nbsp;&nbsp;울산광역시 북구 산하동 166-1번지</address></li>
+                <li><span>이메일</span><address>&nbsp;&nbsp;webmaster@cinemabeach.co.kr</address></li>
+                <li><span>전화번호</span><address>&nbsp;&nbsp;052-298-6622, 052-298-4433</address></li>
+                <li><span>SNS</span><address>&nbsp;&nbsp;<a href="#"></a></address></li>
             </ul>
         </div>
 
-        <div id="sns">
-            <ul>
-                <li><a href="#">인스타그램</a></li>
-            </ul>
-        </div>
+        
  
     </footer>
 </body>
