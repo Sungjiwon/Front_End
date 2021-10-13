@@ -2,7 +2,7 @@
 window.addEventListener('load', function() {
     setTimeout(function() {
             scrollTo(0, 0)
-    }, 10)
+    })
     var typingBool = false; 
     var typingIdx=0; 
     var typingTxt = $(".typing-txt").text(); // 타이핑될 텍스트를 가져온다 
@@ -33,7 +33,8 @@ document.addEventListener('wheel', function(e) {
     if (e.wheelDelta < 0 && state == 1) {
         state = 0;
         n++;
-        console.log(n)
+        console.log(n, screen_pos)
+        
         if ( n == 10) {
             n=9;
             state = 1;
