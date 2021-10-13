@@ -120,12 +120,12 @@ $("#logo").on("click", function() {
     $("#sideNav ul li a:eq("+n+")").addClass('side_active')
 })
 // 헤더에 오버시 서브메뉴까지 나타나기
-$("#header").hover(function() { 
+$("#gnbList").hover(function(e) { 
     $("#header:not(:animated)").animate({height:225}, 300)
     $(".snb:not(:animated)").show();
     $("#header .temp_line:not(:animated)").show()
     }, function() { 
-        $(this).css({height: 80})
+        $("#header").css({height: 80})
         $(".snb").hide();
         $("#header .temp_line").hide()
 })

@@ -784,8 +784,8 @@ html, body { display: block; width: 100%; height: 100vh;}
 #map h2 { 
     position: relative; top: 7vh;
     text-align: center;
-    font-size: 48px;
-    color: #e9e9e9;
+    font-size: 60px;
+    color: #000;
 }
 #mapWrap{ 
     width: 900px;
