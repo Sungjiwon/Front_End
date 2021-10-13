@@ -1,21 +1,92 @@
 @charset "utf-8";
 
-/* font-family: 'Montserrat', 'NotoSans', 'Arial', '맑은 고딕', '돋움', dotum, AppleGothic, sans-serif; */
-/* #2d3750  네이비색 배경*/
-/* 연한 색 #f5f5f5; */
-/* body, section, div, ul, li, h1, h2 { margin: 0; padding: 0;} */
+/* 초기화 */
 * { margin: 0; padding: 0;}
 li { list-style: none;}
 a { text-decoration: none; color: #000;}
 .hidden { position: absolute; left: -9999px; }
 
-/* html { overflow: hidden;} */
 html, body { display: block; width: 100%; height: 100vh;}
-.section { width: 100%; height: 100vh;
-position:relative;
+.section {width: 100%; height: 100vh; position:relative;}
 
+/* 헤더 */
+#header { 
+    position:absolute; top:0; left:0;
+    z-index: 1;
+    width: 100%;
+    height: 80px;
+    background: rgba(0,0,0,0.3)
 }
-/* 처음에는 처음 로고 위치에 있다가 페이지 이동 될 때 아래로 위치하게. top버튼 해결할 것. */
+#header h1{
+    position: absolute;
+    text-indent: -9999px;}
+#gnbWrap {
+    width: 550px;
+    height: 80px;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 80px;
+    font-weight: bold;
+    text-align: center;
+}
+#gnbList { 
+    display: flex;
+    justify-content: space-between;
+}
+#gnbList li div{
+    cursor: pointer;
+}
+#header .temp_line { 
+    position: absolute; 
+    top:80px;
+    width:100%;
+    height: 1px;
+    background: #6d6b6b;
+    display: none;
+}
+#gnbList .snb{   
+    display: none;
+    line-height: 30px;
+    font-size: 17px;
+}
+#gnbList .snb li { margin-top: 5px;}
+#gnbList > li {
+    width: 25%;
+}
+#gnbList li a, div { color: #fff}
+
+#introBg { 
+    position:relative;
+    width: 100%;
+    height: 100vh;
+    background: no-repeat center / cover url(../images/bgbg2.jpg);
+}
+/* blumacine 타이핑효과 */
+#typingWrap { 
+    position: absolute;
+    top: 34%;
+    left: 40%;
+    color: #fff;
+    font-size: 125px;
+    letter-spacing: 7px;
+    font-family: 'Birthstone', cursive;
+}
+#introBg p.typing-txt{display: none;}
+#introBg .typing {  
+    display: inline-block; 
+    animation-name: cursor; 
+    animation-duration: 1s; 
+}
+@keyframes typing { 
+    from {width: 0;}
+} 
+@keyframes cursor{ 
+    0%{border-right: 1px solid #fff} 
+    50%{border-right: 1px solid #000} 
+    100%{border-right: 1px solid #fff} 
+}
+
+/* 로고 */
 #logo { 
     position: fixed; top:0; left:0;
     z-index: 101;
@@ -30,23 +101,13 @@ position:relative;
     height: 80px;
     /* transition: 1s; */
 }
-.logo_active{
-    animation: logomoving 1s linear;
-    
-    /* top:16%; left:30px; transition: 1s;  */
-}
-@keyframes logomoving{ 
-    100% {top: 16%; left: 30px;}
-    /* 100% { transform: translate(16%, 30px);} */
-}
-
 /* 사이드 네비게이션 */
 #sideNav { 
     position: fixed;
     z-index: 100;
     top: 50%; left: 44px;
-    opacity: 0;
-    /* display: none; */
+    /* opacity: 0; */
+    display: none;
     transform: translateY(-50%);
     /* transition: 1s; */
 }
@@ -97,7 +158,6 @@ position:relative;
     /* width: 100px; */
     opacity: 1;
 }
-
 #sideNav div{
     position: absolute; top: 8px; left: 54px;
     opacity: 0;
@@ -107,110 +167,10 @@ position:relative;
     color: #0067ac;
     font-weight: bold;
 }
-/* #sideNav li:hover span{
-    transition: 0.2s;
-    transform: scale(2.0);
-} */
 #sideNav li:hover .side{
-    /* opacity: 1; */
     transition: opacity 0.2s ease-in;
-    /* width: 100px; */
     opacity: 1;
 }
-
-#header { 
-    position:absolute; top:0; left:0;
-    z-index: 1;
-    width: 100%;
-    height: 80px;
-    /* border-bottom: 1px solid #000; */
-    background: rgba(0,0,0,0.3)
-}
-
-#header h1{
-    position: absolute;
-    text-indent: -9999px;}
-/* #header #logo { 
-    position: fixed; top:0; left:10px;
-    z-index: 1;
-    width: 80px;
-    height:80px;
-    background: no-repeat center / cover;
-    background-image: url(../images/logo.png);} */
-
-#gnbWrap {
-    width: 550px;
-    height: 80px;
-    /* float:right; */
-    margin: 0 auto;
-    font-size: 20px;
-    line-height: 80px;
-    font-weight: bold;
-    text-align: center;
-}
-#gnbList { 
-    display: flex;
-    justify-content: space-between;
-}
-#header .temp_line { 
-    position: absolute; 
-    top:80px;
-    width:100%;
-    height: 1px;
-    background: #6d6b6b;
-    display: none;
-}
-#gnbList .snb{   
-    display: none;
-    line-height: 30px;
-    font-size: 17px;
-}
-#gnbList .snb li { margin-top: 5px;}
-#gnbList > li {
-    width: 25%;
-}
-#gnbList li a, div { color: #fff}
-
-@keyframes typing { 
-    from {width: 0;}
-}
-#introBg { 
-    position:relative;
-    width: 100%;
-    height: 100vh;
-    background: no-repeat center / cover url(../images/bgbg2.jpg);
-}
-#typingWrap { 
-    position: absolute;
-    top: 34%;
-    left: 40%;
-    /* text-transform: uppercase; */
-    color: #fff;
-    font-size: 125px;
-    letter-spacing: 7px;
-    font-family: 'Birthstone', cursive;
-}
-#introBg p.typing-txt{display: none;}
-#introBg .typing {  
-    /*       position: absolute;*/ 
-    display: inline-block; 
-    animation-name: cursor; 
-    animation-duration: 1s; 
-    /* animation-iteration-count: infinite;  */
-} 
-@keyframes cursor{ 
-    0%{border-right: 1px solid #fff} 
-    50%{border-right: 1px solid #000} 
-    100%{border-right: 1px solid #fff} 
-}
-/* #introBg{ 
-    position:relative;
-    width: 100%;
-    height: 100vh;
-}
-#introBg video{ 
-    width: 100%;
-} */
 
 /* 현재상영영화 */
 #live { background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/cinema2.jpg);
@@ -230,6 +190,7 @@ position:relative;
     overflow: hidden;
     background: #000;
 }
+/* 위아래 버튼 */
 #posBtn div{
     position: absolute; top: 0; left: calc( 50% - 27px );
     text-align: center;
@@ -240,8 +201,11 @@ position:relative;
 }
 #posBtn .prevBtn { top: calc( 50% - 320px );}
 #posBtn .nextBtn { top: calc( 50% + 340px );}
-
-
+#posBtn div:hover{
+    filter: brightness(150%);
+    transition: 0.5s;
+}
+/* 차례 버튼 */
 #numBtn { 
     position: absolute; bottom: 10px; left: 50px;
     font-size: 25px;
@@ -255,13 +219,23 @@ position:relative;
 
 #movieList { 
     width: 1150px; height: 1650px;
-    /* position: relative; top: -460px; */
 }
 #movieList li { 
     width: 1150px; height: 550px;
-    /* display: flex; 
-    justify-content: space-between; */
 }
+#movieList li .poster { 
+    width: 715px; height: 550px; 
+    float: left;
+}
+#movieList li:nth-child(1) .poster {background-image: url(../images/poster1.png);}
+#movieList li:nth-child(2) .poster {background-image: url(../images/poster2.png);}
+#movieList li:nth-child(3) .poster {background-image: url(../images/poster3.png);}
+#movieList li .poster a { 
+    display: block;
+    width: 715px; 
+    height: 550px;
+}
+/* 예고편 영상 */
 #movieList li .teaser { 
     position:absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -269,9 +243,9 @@ position:relative;
     width: 100%;
     max-width: 900px;
     height: 500px;
-    
     display: none;
 }
+/* 예고편 영상 닫기 */
 #movieList li .teaser .close{
     float: right;
     font-size: 20px;
@@ -283,26 +257,13 @@ position:relative;
     width: 100%;
     height: 100%;
 }
+/* 예고편 클릭시 다른 배경 어둡게 하기 */
 #live .darkBg { 
     z-index: 100;
     position:absolute; top:0; left: 0;
     width: 100%; height: 100vh;
     background:rgba(51, 51, 51, 0.5);
     display: none;
-}
-
-/* #movieList li div {} */
-#movieList li .poster { width: 715px; height: 550px; 
-    float: left;
-    /* border: 3px solid coral; */
-}
-#movieList li:nth-child(1) .poster {background-image: url(../images/poster1.png);}
-#movieList li:nth-child(2) .poster {background-image: url(../images/poster2.png);}
-#movieList li:nth-child(3) .poster {background-image: url(../images/poster3.png);}
-#movieList li .poster a { 
-    display: block;
-    width: 715px; 
-    height: 550px;
 }
 #movieList li .explain { 
     width: 400px; height: 550px;
@@ -325,10 +286,13 @@ position:relative;
 .explain .trailer { 
     float: right;
     margin: 15px 15px 0 0;
-    color: #fff;
+    color: #0067ac;
     font-size: 20px;
 }
-/* #movieList li .explain .rTime */
+.explain .trailer:hover{
+    filter: brightness(150%);
+}
+/* 상영일정 테이블 */
 .rTime { 
     margin: 15px auto 0;
     /* height: 100px;  */
@@ -356,7 +320,6 @@ position:relative;
     color: #fff;
     font-size: 15px;
 }
-
 .info .info_bar { 
     display: inline-block;
     position: absolute; top:2px; left: -10px;
@@ -381,6 +344,7 @@ position:relative;
 .info .actor { margin-top: 2px; }
 .info .summary { margin: 2px 0 5px 0;}
 .info a { color: #0067ac;}
+.info a:hover { filter: brightness(150%);}
 
 /* 상영예정작 */
 #future {
@@ -404,7 +368,7 @@ position:relative;
 #futureWrap { 
     width: 1200px;
     height: 550px;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     margin: 10vh auto 0;     
     /* margin: 0 auto; */
 }
@@ -416,17 +380,11 @@ position:relative;
     width: 350px;
     height: 550px;
     background: no-repeat center / cover;
-    /* position:relative; */
-    cursor: pointer;
+    cursor: pointer;    
 }
 #futureList li:nth-child(1) { background-image: url(../images/venom.jpg);}
 #futureList li:nth-child(2) { background-image: url(../images/dune.jpg);}
 #futureList li:nth-child(3) { background-image: url(../images/eternals.jpg);}
-/* #futureList li a { 
-    display :block; 
-    width: 350px; height: 500px; 
-    start_date 에 커서 올리면 a태그 발동 안하는데 이거 어떻게 하더라 강사님이 알려줬는데...
-} */
 #futureList li .start_date { 
     position:relative; top: 7px; left: 7px;
     /* z-index: ; */
@@ -437,8 +395,9 @@ position:relative;
     background: rgb(199, 199, 21);
     font-weight: bold; color: #fff;
     text-align: center;
-    line-height: 55px;
+    line-height: 50px;
 }
+/* 상영예정작 예고편 */
 #futureList li .teaser{
     position:absolute; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
@@ -446,22 +405,19 @@ position:relative;
     width: 100%;
     max-width: 900px;
     height: 500px;
-    
     display: none;
 }
 #futureList li .teaser .close{ 
     float: right;
-    /* text-align: right; */
     font-size: 20px;
     font-weight: normal;
-    /* position: relative; */
-    /* top:-40px; */
     color: #fff;
 }
 #futureList li .teaser .teaser_video { 
     width: 100%;
     height: 100%;
 }
+/* 예고편 영상 이외에 다른 배경 어둡게 하기 */
 #futureWrap .darkBg { 
     z-index: 100;
     position:absolute; top:0; left: 0;
@@ -473,32 +429,23 @@ position:relative;
 /* 극장안내 */
 #guide{
     background: no-repeat center/ cover;
-    background-image :url(../images/bg20.jpg);
-    /* background: #e9e9e9; */
-    /* border-top: 3px solid #fff; */
-    /* background: no-repeat center / cover;
-    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png); */
-    /* background: rgb(17, 17, 17); */
-    
+    background-image: url(../images/bg19.jpg)    
 }
 #guide h2 {
     position: relative; top: 7vh;
     text-align: center;
     font-size: 60px; 
-    color: #1e1e1e;
+    color: #fff;
 }
 #guideWrap{
     position: relative;
-    /* width: 1100px;
-    height: 620px;
-    border: 1px solid #000;
-    margin: 180px auto 0; */
     width: 1100px;
     height: 65vh;
     margin: 15vh auto 0;
-    border: 1px solid #fff;
-    background: rgb(109, 146, 161);
+    border: 1px solid #000;
+    background: #f5f5dc40;
 }
+/* 약도 */
 #guideWrap .minimap { 
     position: absolute; bottom:20px; right:50px;
     width: 430px; height: 260px;
@@ -510,21 +457,22 @@ position:relative;
 }
 #guideList li { 
     list-style-image: url(../images/check1.png);
-    color: #e9e9e9;
+    color: #fff;
 }
 #guideList h3 { 
     margin: 0 0 5px 10px;
-    font-size: 30px;
+    font-size: 35px;
+    font-family: 'Gamja Flower', cursive;
 }
 #guideList p { 
-    margin: 0 0 10px 20px;
-    font-size: 22px;
+    margin: 0 0 10px 25px;
+    font-size: 25px;
+    font-family: 'Gamja Flower', cursive;
 }
 
-/* 약도 및 브랜드. */
+/* 주변상가 */
 #store { 
     width: 100%; height: 100vh; 
-    /* background: lightblue; */
     background: no-repeat center / cover;
     background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png);
     overflow: hidden;
@@ -542,44 +490,38 @@ position:relative;
 #store_wrap #leftBox { 
     position: relative; top: 30vh; left: -5%;
     width: 45%;; 
-    /* height: 50%; */
     float: left;
-    /* border: 3px solid blue; */
-    /* box-sizing: border-box; */
-    /* margin-left: 5%; */
 }
-#leftBox p { /* 스크롤됐을 때 한 글자씩 애니메이션 하기 */
-    font-size: 25px;
+#leftBox p { 
+    font-size: 35px;
+    font-family: 'Gamja Flower', cursive;
     line-height: 40px;
     color: #e9e9e9;
 }
-#leftBox .food { } /* 스크롤됐을 때 형광펜처럼 칠하기 */
+#leftBox .food { } 
 #leftBox .link{
     font-size: 20px;
 }
-
 #store_wrap #rightBox { 
     position: relative; z-index: 999;
     width: 50%;
     height: 100vh;
     float: right;
-    /* overflow: hidden; */
     min-width: 300px;
 }
-/* 하나는 위로 하나는 반대로..... */
+/* 브랜드 위아래로 애니메이션 하기, 끝에서 다시 돌아오는 애니메이션 */
 @keyframes verticalscroll1 {
-    0% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
-    50% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
-	100% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
+    0% {-moz-transform: translateY(190px);-ms-transform: translateY(190px);-webkit-transform: translateY(190px);transform: translateY(190px);}
+    50% {-moz-transform: translateY(-2800px);-ms-transform: translateY(-2800px);-webkit-transform: translateY(-2800px);transform: translateY(-2800px)}
+	100% {-moz-transform: translateY(190px);-ms-transform: translateY(190px);-webkit-transform: translateY(190px);transform: translateY(190px);}
 }
 @keyframes verticalscroll2 {
-	0% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
-    50% {-moz-transform: translateY(590px);-ms-transform: translateY(590px);-webkit-transform: translateY(590px);transform: translateY(590px);}
-    100% {-moz-transform: translateY(-2400px);-ms-transform: translateY(-2400px);-webkit-transform: translateY(-2400px);transform: translateY(-2400px)}
+	0% {-moz-transform: translateY(-2000px);-ms-transform: translateY(-2000px);-webkit-transform: translateY(-2000px);transform: translateY(-2000px)}
+    50% {-moz-transform: translateY(890px);-ms-transform: translateY(890px);-webkit-transform: translateY(890px);transform: translateY(890px);}
+    100% {-moz-transform: translateY(-2000px);-ms-transform: translateY(-2000px);-webkit-transform: translateY(-2000px);transform: translateY(-2000px)}
 }
 #rightBox .active1{
     animation: verticalscroll1 60s linear infinite;
-    /* animation: ; */
 }
 #rightBox .active2{
     animation: verticalscroll2 60s linear infinite;
@@ -589,25 +531,24 @@ position:relative;
     margin-right: 6%;
     width: 43%;
     height: calc(290px * 10);
-    /* border: 3px solid red;
-    box-sizing: border-box; */
 }
-
 #store_wrap #rightBox .brandRight{
     position:relative; top: -160px;
 }
-
 #store_wrap #rightBox .brand li{
     width: 100%;
     height: 258px;
     margin-top: 32px;
 }
-
 #store_wrap #rightBox .brand img { 
     border-radius: 24%;
     width: 100%;
     height: 100%;
     filter: brightness(80%);
+}
+/* 이미지에 마우스 오버시 밝게 하기 */
+#store_wrap #rightBox .brand img:hover { 
+    filter: brightness(100%);
 }
 
 /* 유의사항 */
@@ -622,18 +563,17 @@ position:relative;
     font-weight: bold;
 }
 #cautionWrap { 
-    /* position: relative; top: 20vh; */
     margin: 15vh auto 0;
     width: 1100px;
     height: 65vh;
-    border: 3px solid #1e1e1e;    
-    background-color: lightseagreen;
+    border: 1px solid #ccc;    
+    background: no-repeat center / cover url(../images/cautionBg.jpeg);
 }
 #cautionList {
-    margin: 50px 0 0 100px;
+    margin: 100px 0 0 210px;
 }
 #cautionList li { 
-    color: #fff;
+    color: #1e1e1e;
 }
 #cautionList li:nth-child(1) { list-style-image: url(../images/blackbox.png); }
 #cautionList li:nth-child(2) { list-style-image: url(../images/carlight.png); }
@@ -644,34 +584,82 @@ position:relative;
 #cautionList h3 {  
     margin: 0 0 5px 10px;
     font-size: 30px;
+    font-family: 'Gamja Flower', cursive;
+}
+/* 형광펜 효과 */
+.highlight { 
+    display: inline-table;
+    position:relative;
+    overflow: hidden;
+}
+.highlight span { 
+    position: relative;
+    z-index: 2;
+}
+.highlight::before{
+    content: "";
+    display:block;
+    position:absolute;
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 200, 0, 0.8);
+    z-index: 1;
+    transition: all 0.5s;
+}
+#cautionList li:hover .highlight::before{ 
+    left:0;
 }
 #cautionList p { 
-    margin: 5px 0 10px 30px;
-    font-size: 20px;
+    margin: 6px 0 10px 30px;
+    font-size: 24px;
+    font-family: 'Gamja Flower', cursive;
 }
-#cautionList p span { }
+/* 형광펜효과2 */
+.highlight2{
+    display: inline-table;
+    position:relative;
+    overflow: hidden;
+}
+.highlight2 span { 
+    position: relative;
+    z-index: 2;
+}
+.highlight2::before{
+    content: "";
+    display:block;
+    position:absolute;
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(225, 50, 50, 0.8);
+    z-index: 1;
+    transition: all 0.5s;
+    transition-delay: 0.5s;
+}
+#cautionList li:nth-child(5):hover .highlight2::before{
+    left:0;
+}
 
 /* 갤러리 */
 #galery { 
     background: no-repeat center / cover;
-    /* background-image: linear-gradient( rgba(0,0,0, 0.6), rgba(0,0,0,0.6)),url(../images/bg11.jpg); */
-    background-image: url(../images/bg20.jpg);
-    
+    background-image: url(../images/bg20.jpg);    
     position: relative;
 }
 #galery h2 { 
     position: relative; top: 7vh;
     text-align: center;
     font-size: 60px; 
-    color: #6d6b6b;
+    color: #000;
 }
 #galeryWrap{
     width: 1280px;
     height: 500px;
     overflow: hidden;
     margin: 15vh auto 0;
-    /* background: #1e1e1e; */
-    /* border: 1px solid red; */
 }
 #galeryList { 
     width: 300%;
@@ -688,9 +676,10 @@ position:relative;
     width: 300px; height: 300px; 
     transition: 1s;
 }
-/* 이거는 js 하면서 슬라이더 할 때 크기 바뀌는걸로. 클래스 줘서하기. */
-/* ************@@@@@ 마우스 호버시 스케일 키우기 */
-
+#galeryList li:hover { 
+    transform: scale(1.1);
+    transition: 0.3s;
+}
 #galeryList .galery_active {
     width: 500px;
     height: 450px;
@@ -709,33 +698,28 @@ position:relative;
     width: 60px; height: 60px;
     border: 1px solid #fff;
     border-radius: 50%;
-    /* opacity: 0.3; */
     transition: 0.5s;
     background: no-repeat center;
 }
 #galery_slider_btn .galery_prev { 
     left: 10%;
-    background-color: #1e1e1e;
+    background-color: #ccc;
     background-image: url(../images/prev_icon.png);
-    filter: sepia(3);
 }
 #galery_slider_btn .galery_next { 
     right: 10%;
-    background-color: #1e1e1e;
+    background-color: #ccc;
     background-image: url(../images/next_icon.png);
 }
-/* 위치 진짜 어떻게 설정하지... */
-/* #galeryList li:nth-child(1) { background-image: url(../images/galery0.jpg);}
-#galeryList li:nth-child(2) { background-image: url(../images/galery1.jpg);}
-#galeryList li:nth-child(3) { background-image: url(../images/galery2.jpg);}
-#galeryList li:nth-child(4) { background-image: url(../images/galery3.jpg);}
-#galeryList li:nth-child(5) { background-image: url(../images/galery4.jpg);}
-#galeryList li:nth-child(6) { background-image: url(../images/galery5.jpg);}
-#galeryList li:nth-child(7) { background-image: url(../images/galery6.jpg);}
-#galeryList li:nth-child(8) { background-image: url(../images/galery7.jpg);}
-#galeryList li:nth-child(9) { background-image: url(../images/galery8.jpg);} */
+#galery_slider_btn a:hover{
+    background-color: #0067ac;
+    transition: 0.5s;
+}
 
-#community { background: #1e1e1e;}
+/* 커뮤니티 */
+#community {
+    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png)
+}
 #community h2 { 
     position: relative; top: 7vh;
     text-align: center;
@@ -748,33 +732,31 @@ position:relative;
     height: 65vh;
     position: relative;
     right: 6px;
-    /* overflow: hidden;    */
 }
 #communityWrap .communityBox{
     width: 48%; height: 48%;
     overflow: hidden;
     display: inline-block;
     position: relative;
-    /* border: 1px solid #000; */
     border-radius: 7%;
     box-sizing:border-box;
 }
-/* #communityWrap div { border: 1px solid red}; */
 .community {
     position: relative;
     width: 100%;
     height: 100%;    
-    transition: transform 0.7s;
     overflow: hidden;
+    background: no-repeat center / cover;
+    background-image: url(../images/commu1.png)
 } 
 .community h3{
     display: inline-block;
-    margin: 40px 0 0 40px;
+    margin: 80px 0 0 90px;
 }
 .community a{
     float: right;
-    right: 70px;
-    top: 40px;
+    right: 80px;
+    top: 74px;
     position: relative;
     font-size: 25px;
     display: inline-block;
@@ -789,18 +771,15 @@ position:relative;
 .communityBox2{ margin: 0 0 0 30px; }
 .communityBox3{ margin-top: 21px;}
 .communityBox4{ margin: 21px 0 0 30px;}
+.community:hover{
+    transform:scale(1.1);
+    transition:  0.5s;
+}
 
-.community:hover{transform:scale(1.1)}
-#official { background: slateblue; }
-#freetalk { background: lightseagreen; }
-#epilogue { background: forestgreen;}
-#message { background: dodgerblue;}
-
-
-
+/* 찾아오시는 길 */
 #map { 
     background: no-repeat center / cover;
-    background-image: url(../images/bg19.jpg);
+    background-image: url(../images/mapBg1.png);
 }
 #map h2 { 
     position: relative; top: 7vh;
@@ -811,7 +790,6 @@ position:relative;
 #mapWrap{ 
     width: 900px;
     height: 500px;
-    /* border: 1px solid red; */
     margin: 15vh auto 0;
 }
 #mapWrap .realmap{
@@ -819,6 +797,7 @@ position:relative;
     height: 500px;
 }
 
+/* 푸터 */
 #footer { 
     background: #1e1e1e;
     color: #ccc;
@@ -836,7 +815,8 @@ position:relative;
     margin-bottom: 20px;
 }
 #foot_info li address a{
+    margin-top: 5px;
     display: inline-block;
     width: 50px; height: 50px;
-    background-image: url(../images/insta.jpg);
+    background-image: url(../images/instagram.png);
 }
