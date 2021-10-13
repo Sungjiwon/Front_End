@@ -15,6 +15,30 @@ html, body { display: block; width: 100%; height: 100vh;}
 position:relative;
 
 }
+/* 처음에는 처음 로고 위치에 있다가 페이지 이동 될 때 아래로 위치하게. top버튼 해결할 것. */
+#logo { 
+    position: fixed; top:0; left:0;
+    z-index: 101;
+    width: 80px;
+    height:80px;
+    background: no-repeat center / cover;
+    background-image: url(../images/logo.png);
+}
+#logo a {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    /* transition: 1s; */
+}
+.logo_active{
+    animation: logomoving 1s linear;
+    
+    /* top:16%; left:30px; transition: 1s;  */
+}
+@keyframes logomoving{ 
+    100% {top: 16%; left: 30px;}
+    /* 100% { transform: translate(16%, 30px);} */
+}
 
 /* 사이드 네비게이션 */
 #sideNav { 
@@ -98,51 +122,54 @@ position:relative;
     position:absolute; top:0; left:0;
     z-index: 1;
     width: 100%;
-    height: 100px;
+    height: 80px;
     /* border-bottom: 1px solid #000; */
     background: rgba(0,0,0,0.3)
-    
 }
+
 #header h1{
     position: absolute;
     text-indent: -9999px;}
-#header #logo { 
+/* #header #logo { 
     position: fixed; top:0; left:10px;
     z-index: 1;
-    width: 100px;
-    height:100px;
+    width: 80px;
+    height:80px;
     background: no-repeat center / cover;
-    background-image: url(../images/logo.png);}
+    background-image: url(../images/logo.png);} */
 
 #gnbWrap {
-    width: 500px;
-    /* height: 30px; */
+    width: 550px;
+    height: 80px;
     /* float:right; */
     margin: 0 auto;
     font-size: 20px;
-    line-height: 100px;
+    line-height: 80px;
     font-weight: bold;
+    text-align: center;
 }
 #gnbList { 
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid #000; */
 }
-#gnbList li {
-    
+#header .temp_line { 
+    position: absolute; 
+    top:80px;
+    width:100%;
+    height: 1px;
+    background: #6d6b6b;
+    display: none;
 }
-#gnbList li a { color: #fff}
-
-/* #introBg{
-     뭔가 1페이지 메인화면으로 쓰고 싶은데 뭐 없나 
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg2.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; == 주석.
-} */
+#gnbList .snb{   
+    display: none;
+    line-height: 30px;
+    font-size: 17px;
+}
+#gnbList .snb li { margin-top: 5px;}
+#gnbList > li {
+    width: 25%;
+}
+#gnbList li a, div { color: #fff}
 
 @keyframes typing { 
     from {width: 0;}
@@ -495,24 +522,24 @@ position:relative;
 }
 
 /* 약도 및 브랜드. */
-#guide2 { 
+#store { 
     width: 100%; height: 100vh; 
     /* background: lightblue; */
     background: no-repeat center / cover;
     background-image: linear-gradient( rgba(0,0,0, 0.3), rgba(0,0,0,0.3)),url(../images/bg12.png);
     overflow: hidden;
 }
-#guide2 h2 { 
+#store h2 { 
     position: relative; top:25vh; left: 15%;
     display: inline-block;
     color: #fff;
     font-size: 55px;
 }
-#guide2_wrap { 
+#store_wrap { 
     width: 1200px;
     margin: 0 auto;
 }
-#guide2_wrap #leftBox { 
+#store_wrap #leftBox { 
     position: relative; top: 30vh; left: -5%;
     width: 45%;; 
     /* height: 50%; */
@@ -531,7 +558,7 @@ position:relative;
     font-size: 20px;
 }
 
-#guide2_wrap #rightBox { 
+#store_wrap #rightBox { 
     position: relative; z-index: 999;
     width: 50%;
     height: 100vh;
@@ -557,7 +584,7 @@ position:relative;
 #rightBox .active2{
     animation: verticalscroll2 60s linear infinite;
 }
-#guide2_wrap #rightBox .brand{
+#store_wrap #rightBox .brand{
     display: inline-block;
     margin-right: 6%;
     width: 43%;
@@ -566,17 +593,17 @@ position:relative;
     box-sizing: border-box; */
 }
 
-#guide2_wrap #rightBox .brandRight{
+#store_wrap #rightBox .brandRight{
     position:relative; top: -160px;
 }
 
-#guide2_wrap #rightBox .brand li{
+#store_wrap #rightBox .brand li{
     width: 100%;
     height: 258px;
     margin-top: 32px;
 }
 
-#guide2_wrap #rightBox .brand img { 
+#store_wrap #rightBox .brand img { 
     border-radius: 24%;
     width: 100%;
     height: 100%;
@@ -688,7 +715,7 @@ position:relative;
 }
 #galery_slider_btn .galery_prev { 
     left: 10%;
-    background-color: #6d6b6b;
+    background-color: #1e1e1e;
     background-image: url(../images/prev_icon.png);
     filter: sepia(3);
 }
@@ -708,7 +735,7 @@ position:relative;
 #galeryList li:nth-child(8) { background-image: url(../images/galery7.jpg);}
 #galeryList li:nth-child(9) { background-image: url(../images/galery8.jpg);} */
 
-#community { background: chocolate;}
+#community { background: #1e1e1e;}
 #community h2 { 
     position: relative; top: 7vh;
     text-align: center;
@@ -771,7 +798,10 @@ position:relative;
 
 
 
-#map { background: olivedrab;}
+#map { 
+    background: no-repeat center / cover;
+    background-image: url(../images/bg19.jpg);
+}
 #map h2 { 
     position: relative; top: 7vh;
     text-align: center;

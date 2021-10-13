@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
+    <!-- 해야할거. 네비랑 사이드네비 not animated. 
+    사이드네비 opacity 말고 display로..? 
+image alt랑 다른 태그들 title? 할 것. 
+유효성검사랑 아웃라이너 체크 
+시간 남으면 폰트 .
+배경화면 피드백. 
+스크롤 내려갔을 때 이미지나 텍스트 형광펜 그튼거. -->
     <meta charset="UTF-8">
     <title>Document</title>
     <style></style>
@@ -16,18 +23,38 @@
 <body>
     <header id="header">
         <h1>블루마씨네</h1>  
-        <div id="logo"><a href="#"></a></div>
+        <!-- <div id="logo"><a href="#"></a></div> -->
+        <div class="temp_line"></div>
         <nav id="gnbWrap">
-            <h2 class="hidden">메뉴</h2>
+            <h2 class="hidden">네비게이션 메뉴</h2>
             <ul id="gnbList">
-                <li><a href="#">영화</a></li>
-                <li><a href="#">극장안내</a></li>
-                <li><a href="#">커뮤니티</a></li>
-                <li><a href="#">찾아오시는 길</a></li>
+                <li>
+                    <!-- <a href="#">영화</a>  -->
+                    <div>영화</div> 
+                    <ul class="snb">
+                        <li><a href="#live" >현재상영영화</a></li>
+                        <li><a href="#future">상영예정영화</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <!-- <a href="#">극장안내</a> -->
+                    <div>극장안내</div>
+                    <ul class="snb">
+                        <li><a href="#guide">극장안내</a></li>
+                        <li><a href="#store">주변상가</a></li>
+                        <li><a href="#caution">유의사항</a></li>
+                        <li><a href="#galery">갤러리</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#community">커뮤니티</a>
+                </li>
+                <li><a href="#map">찾아오시는 길</a></li>
             </ul>
         </nav>
     </header>
-
+    <div id="logo"><a href="#"></a></div>
     <!-- 영화: 현재상영영화, 상영예정영화 // 극장안내: 극장안내, 유의사항 , 주변상가, 갤러리// 커뮤니티 //  찾아오시는길-->
 
 
@@ -57,7 +84,7 @@
                 <div class="side">이용안내</div>
             </li>
             <li>
-                <a href="#guide2"><span></span></a>
+                <a href="#store"><span></span></a>
                 <div class="side">주변상가</div>
             </li>
             <li>
@@ -302,9 +329,9 @@
     </section>
 
     <!-- 타이틀 하나에 나머지 텍스트 좀 줄이고. 괄호 빼고. -->
-    <section id="guide2">
+    <section id="store" class="section">
         <h2>주변 상가 현황</h2>
-        <div id="guide2_wrap">            
+        <div id="store_wrap">            
             <div id="leftBox" class="box">
                 <p>극장으로 오시는 길에<br><span class="food">많은 음식점들이</span><br>있습니다.<br><span class="link">이미지 클릭시 해당 음식점 링크로 이동합니다</span></p>
 

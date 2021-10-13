@@ -1,8 +1,10 @@
 let n = 0;
 let state = 1;
+let logo_state = 1;
 let screen_pos = $(".section").position().top
 let footer_pos = $("#footer").height();
-console.log(footer_pos);
+console.log($("body > .section:eq(0)").position().top)
+// 0~7까지.
 document.addEventListener('wheel', function(e) {
     // console.log(e.wheelDelta)
     if (e.wheelDelta < 0 && state == 1) {
@@ -45,14 +47,56 @@ document.addEventListener('wheel', function(e) {
     if(n>0) {
         console.log(253443); 
         $("#sideNav").animate({opacity:1}, 1000)
+        $("#logo").animate({left:30, top: 16+"%"}, 1000)
     }
     else {
         console.log(989999999999999999999999999999); 
         $("#sideNav").css({opacity:0})
-    
+        $("#logo").animate({left:0, top: 0}, 1000)    
     }
     e.preventDefault();
 },{passive : false})
+
+
+
+$("#header li").on("click", function(e) { 
+    let idName = $(this).find('a').attr('href')
+    // let section_pos = $(idName).position().top
+    let section_pos = $(idName).position().top;
+    
+    $("html, body").animate({ scrollTop: section_pos }, 1000)
+    n = section_pos / screen_pos; //1,2,3,4,5,6,7,8
+    console.log(section_pos, n)
+    // n = $(this).index();
+    $("#sideNav ul li a").removeClass("side_active");
+    $("#sideNav ul li a:eq("+n+")").addClass('side_active')
+    
+    if(n == 4){
+        // $("#rightBox ul").addClass('active')
+        $("#rightBox ul:eq(0)").addClass('active1')
+        $("#rightBox ul:eq(1)").addClass('active2')
+    }
+    else {
+        $("#rightBox ul:eq(0)").removeClass('active1')
+        $("#rightBox ul:eq(1)").removeClass('active2')
+    }
+    if(n>0) {
+        $("#sideNav").animate({opacity:1}, 1000)
+        $("#logo").animate({left:30, top: 16+"%"}, 1000)
+    }
+    else {
+        $("#sideNav").css({opacity:0})
+        $("#logo").animate({left:0, top: 0}, 1000)
+    }
+    e.preventDefault();
+    e.stopPropagation();
+})
+$("#logo").on("click", function() { 
+    $("html, body").animate({ scrollTop: 0 }, 1000)
+    $("#sideNav").css({opacity:0})
+    $("#logo").animate({left:0, top: 0}, 1000)
+})
+
 window.addEventListener('load', function() {
     setTimeout(function() {
             scrollTo(0, 0)
@@ -76,6 +120,17 @@ window.addEventListener('load', function() {
        } 
      }
 })
+// 네비게이션
+$("#header").hover(function() { 
+    $(this).animate({height:225}, 300)
+    $(".snb").show();
+    $("#header .temp_line").show()
+    }, function() { 
+        $(this).animate({height: 80}, 300)
+        $(".snb").hide();
+        $("#header .temp_line").hide()
+})
+
 // 사이드 네비게이션
 $("#sideNav ul li").on('click', function(e) {
     $(this).children('a').addClass('side_active')
@@ -101,10 +156,18 @@ $("#sideNav ul li").on('click', function(e) {
         $("#rightBox ul:eq(0)").removeClass('active1')
         $("#rightBox ul:eq(1)").removeClass('active2')
     }
-    if(n>0) $("#sideNav").animate({opacity:1}, 1000)
-    else $("#sideNav").css({opacity:0})
+    if(n>0) {
+        $("#sideNav").animate({opacity:1}, 1000)
+        $("#logo").animate({left:30, top: 16+"%"}, 1000)
+    }
+    else {
+        $("#sideNav").css({opacity:0})
+        $("#logo").animate({left:0, top: 0}, 1000)
+    }
     e.preventDefault();
 })
+// 시도1: 그냥 n>0 152번 if문에 추가해본다.
+// 시도2: if(n == 1 && logo_state == 1) 로 만들어서 따로 해본다.
 
 $("#movieList li .explain .trailer").on('click', function(e) {
     let temp_index = $(this).parent().parent().index();
